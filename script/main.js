@@ -131,7 +131,9 @@ let quotes = [
 const quoteElement = document.querySelector('#quote');
 const quoteButton = document.querySelector('.add-quote button');
 const quoteInput = document.querySelector('.add-quote input');
-const select = document.createElement('select');
+const select = document.createElement('div');
+
+select.classList.add("select-quotes")
 
 function showQuoteInput() {
   quoteInput.classList.toggle('hide');
@@ -141,9 +143,7 @@ function showQuoteInput() {
 function addQuote(event) {
   if (event.code === "Enter") {
     quotes.push(quoteInput.value);
-    const option = document.createElement('option');
-    option.textContent = `"${quoteInput.value}"`;
-    select.appendChild(option);
+    select.textContent = `"${quoteInput.value}"`;
     select.selectedIndex = select.children.length - 1;
     quoteInput.classList.add('hide');
   }
@@ -154,12 +154,11 @@ function showQuotes() {
   let randomNumber = Math.round(Math.random() * (quotes.length - 1));
   quotes.forEach(quote => {
     const option = document.createElement('option');
-    option.classList.add("select")
-    option.textContent = `"${quote}"`;
-    select.appendChild(option);
+    select.textContent = `"${quotes[randomNumber]}"`;
   })
   select.selectedIndex = randomNumber
   quoteElement.prepend(select);
+
 }
 
 function quoteButtonEvent() {

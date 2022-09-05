@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Momentum app pot</title>
+</head>
+
+<body>
+  <div class="search-container general-button-target">
+    <img class="search-icon" src="assets/search-icon.png" alt="" />
+    <input class="search-input" type="text" />
+    <a class="search-link" href="" target="_blank"></a>
+  </div>
+  <div class="main-container">
+    <div class="fade-container">
+      <div class="time-container">
+        <h1 class="time"></h1>
+      </div>
+    </div>
+    <div class="name-container">
+      <h1 class="name">Hello, what's your name?</h1>
+      <input class="name-input" type="text" maxlength="20" />
+    </div>
+    <div class="greeting"></div>
+    <div class="greeting-container">
+      <h3 class="greeting"></h3>
+    </div>
+    <div class="focus-container">
+      <div class="what-focus">
+        <h3 class="focus">What's your main focus for today?</h3>
+        <input class="focus-input" type="text" maxlength="20" />
+      </div>
+      <div class="your-focus">
+        <h3 class="focus-header">Your main focus today is</h3>
+        <div class="your-focus-container">
+          <div class="your-focus-text"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="quote">
+  </div>
+  <div class="add-quote">
+    <button>Add quote +</button>
+    <input class="hide" type="text">
+  </div>
+
+  <div class="lower-right-container fixed">
+    <div class="to-do-list-container">
+      <div class="todo-form">
+        <input class="todo-input" type="text" data-input-form />
+        <button class="save-btn" type="button" data-save>Save</button>
+      </div>
+      <ul class="todo-list" data-list>
+        <!-- <li><span></span><button>edit</button><button>Delete</button></li> -->
+      </ul>
+    </div>
+    <div id="todo-btn">
+      <p class="clickable">
+        <ion-icon name="list-outline"></ion-icon>
+      </p>
+    </div>
+  </div>
+
+
+
+  <script src="script/main.js"></script>
+</body>
+
+</html>

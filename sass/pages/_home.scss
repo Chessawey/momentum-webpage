@@ -1,0 +1,133 @@
+.search-container {
+  width: 30rem;
+  padding: 2rem;
+}
+
+.search-input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  opacity: 0;
+  transition: all 1s;
+  margin-right: 4rem;
+  color: white;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // margin-bottom: 15rem;
+}
+
+.fade-container {
+  height: 20rem
+}
+
+.time-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  // margin-top: 23rem;
+}
+
+.name-container {
+  height: 10rem;
+}
+
+.hide {
+  display: none;
+  border: none;
+}
+
+#quote {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+#quote select {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: white;
+  appearance: none;
+  -webkit-appearance: none;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.add-quote {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.add-quote button {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+}
+
+.add-quote input {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+
+.lower-right-container {
+  bottom: 3rem;
+  right: 1.25rem;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.todo-input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  transition: all 1s;
+  color: white;
+}
+
+.save-btn {
+  color: white;
+  background-color: transparent;
+  margin-right: 2rem;
+  border: none;
+
+}
+
+.span-list {
+  font-size: 1.5rem;
+  color: white;
+  margin-right: 2rem;
+}
+
+.todo-list {
+  list-style: none;
+}
+
+.select {
+  background-color: rgba($color: #585252, $alpha: 0.1);
+}

@@ -1,0 +1,65 @@
+.search-icon {
+  height: 4rem;
+  width: 4rem;
+}
+
+
+
+.time {
+  color: white;
+  font-size: 15rem;
+  font-weight: 500;
+  font-family: 'Playfair Display', serif;
+
+}
+
+.name-input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  transition: all 1s;
+  color: white;
+  font-size: 5rem;
+  height: 5rem;
+  width: 20rem;
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+
+.greeting {
+  font-size: 5rem;
+  font-family: 'Arimo', sans-serif;
+}
+
+.focus-input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  transition: all 1s;
+  color: white;
+  font-size: 5rem;
+  height: 6rem;
+  width: 20rem;
+  margin-left: 1rem;
+  margin-top: 1.3rem;
+}
+
+.your-focus-text {
+  font-size: 5rem;
+  transform: translateY(-1.25rem);
+  margin-left: 2rem;
+  margin-top: 2.5rem;
+  // width: 10rem;
+  font-family: 'Arimo', sans-serif;
+}
+
+.quote-display {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}

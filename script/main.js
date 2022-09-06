@@ -38,7 +38,7 @@ setInterval(displayTime, 100);
 
 const pageBG = document.querySelector("body")
 let numberBG = Math.floor(Math.random() * 14)
-pageBG.style.background = `url(../assets/${numberBG}.jpg`
+pageBG.style.background = `url(assets/${numberBG}.jpg`
 
 
 
@@ -149,7 +149,6 @@ function addQuote(event) {
   }
 }
 
-
 function showQuotes() {
   let randomNumber = Math.round(Math.random() * (quotes.length - 1));
   quotes.forEach(quote => {
@@ -182,70 +181,220 @@ quoteInputEvent();
 
 // To do //
 
-let todos = [];
-let editedIdx = -1;
 
-const todoInput = document.querySelector('[data-input-form]');
-const saveBtn = document.querySelector('[data-save]');
-const todoList = document.querySelector('[data-list]');
+const toDoButton = document.querySelector('#todo button');
+const toDoInput = document.querySelector('#todo input');
+const toDoList = document.querySelector('#todo .tool > ul');
+let toDoItems = [];
 
-const createTask = (task) => {
-  todos.push(task);
-  localStorage.setItem("todo", JSON.stringify(todos))
+function toggleToDo() {
+  this.previousElementSibling.classList.toggle('show')
 }
 
-const displayList = () => {
-  todoList.innerHTML = ''
-  todos.forEach((item, idx) => {
-    const newLi = document.createElement('li');
-    const newSpan = document.createElement('span');
-    const editBtn = document.createElement('button');
-    const deleteBtn = document.createElement('button');
-
-    editBtn.classList.add("save-btn")
-    deleteBtn.classList.add('save-btn')
-    newSpan.classList.add('span-list')
-
-
-    newSpan.textContent = item;
-    editBtn.textContent = 'Edit';
-    deleteBtn.textContent = 'Delete';
-
-    newLi.appendChild(newSpan);
-    newLi.appendChild(editBtn);
-    newLi.appendChild(deleteBtn);
-
-    editBtn.addEventListener('click', () => {
-      editedIdx = idx;
-      todoInput.value.item
-    })
-
-    deleteBtn.addEventListener('click', () => {
-      deleteTask(idx);
-      displayList();
-    })
-
-    todoList.appendChild(newLi);
-  })
+function showToDo(newItem) {
+  const li = document.createElement('li');
+  const checkbox = document.createElement('input');
+  li.classList.add("input-todo")
+  checkbox.type = 'checkbox';
+  li.textContent = newItem;
+  li.prepend(checkbox);
+  toDoList.appendChild(li);
 }
 
-const updateTask = (updatedItem, idx) => {
-  todos[idx] = updatedItem;
-}
-
-const deleteTask = (idx) => {
-  todos = todos.filter((_, index) => index != idx)
-}
-
-saveBtn.addEventListener('click', () => {
-  if (editedIdx > -1) {
-    updateTask(todoInput.value, editedIdx)
-    editedIdx = -1
-  } else {
-    createTask(todoInput.value)
+function addToDo(event) {
+  if (event.code === 'Enter') {
+    toDoItems.push(toDoInput.value);
+    showToDo(toDoInput.value);
+    toDoInput.value = '';
+    localStorage.setItem('todo', JSON.stringify(toDoItems))
   }
-  todoInput.value = ''
-  displayList();
-})
+}
 
-displayList();
+function deleteToDo(event) {
+  if (event.target.checked) {
+    let itemIndex = toDoItems.indexOf(event.target.nextSibling.textContent);
+    if (itemIndex > -1) {
+      const removeBtn = document.createElement('span');
+      removeBtn.textContent = 'x';
+      toDoItems.splice(itemIndex, 1);
+      event.target.parentElement.appendChild(removeBtn);
+      event.target.parentElement.style.textDecoration = 'line-through';
+
+      removeBtn.addEventListener('click', function () {
+        this.parentElement.remove();
+        localStorage.setItem('todo', JSON.stringify(toDoItems))
+      })
+    }
+  }
+}
+
+function getToDo() {
+  if (localStorage.getItem('todo')) {
+    toDoItems = JSON.parse(localStorage.getItem('todo'));
+    toDoItems.forEach(item => {
+      showToDo(item);
+    })
+  }
+}
+
+function toggleToDoListEvent() {
+  createEventListener(toDoButton, 'click', toggleToDo)
+}
+
+function addToDoEvent() {
+  createEventListener(toDoInput, 'keyup', addToDo);
+}
+
+function deleteToDoEvent() {
+  createEventListener(toDoList, 'change', deleteToDo)
+}
+
+function createEventListener(element, event, func) {
+  element.addEventListener(event, func);
+}
+
+
+getToDo();
+toggleToDoListEvent();
+addToDoEvent();
+deleteToDoEvent();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const todoInput = document.querySelector('[data-input-form]');
+// const saveBtn = document.querySelector('[data-save]');
+// const todoList = document.querySelector('[data-list]');
+
+
+// function checkStorage() {
+//   let todos = JSON.parse(localStorage.getItem("todos"))
+//   if (todos === null) {
+//     todoArr = []
+//   } else {
+//     todoArr = todos
+//   }
+// }
+
+// function displayTodo() {
+//   checkStorage()
+//   let list = ""
+//   todoArr.forEach((todo, index) => {
+//     list += `<p>${todo}</p>`
+//   })
+//   todoList.innerHTML = list
+// }
+
+// todoInput.addEventListener("keydown", (event) => {
+//   if (event.key === "Enter") {
+//     checkStorage()
+//     todoArr.push(todoInput.value)
+//     localStorage.setItem("todos", JSON.stringify(todoArr))
+//   }
+//   displayTodo()
+//   // todoInput.value = ""
+// })
+
+// displayTodo()
+
+// let todos = []
+// let editedIdx = -1;
+
+
+// const createTask = (task) => {
+//   todos.push(task);
+//   localStorage.setItem("todo", JSON.stringify(todos))
+// }
+
+// const displayList = () => {
+//   todoList.innerHTML = ''
+//   todos.forEach((item, idx) => {
+//     const newLi = document.createElement('li');
+//     const newSpan = document.createElement('span');
+//     const editBtn = document.createElement('button');
+//     const deleteBtn = document.createElement('button');
+
+//     editBtn.classList.add("save-btn")
+//     deleteBtn.classList.add('save-btn')
+//     newSpan.classList.add('span-list')
+
+
+//     newSpan.textContent = item;
+//     editBtn.textContent = 'Edit';
+//     deleteBtn.textContent = 'Delete';
+
+//     newLi.appendChild(newSpan);
+//     newLi.appendChild(editBtn);
+//     newLi.appendChild(deleteBtn);
+
+//     editBtn.addEventListener('click', () => {
+//       editedIdx = idx;
+//       todoInput.value.item
+//     })
+
+//     deleteBtn.addEventListener('click', () => {
+//       deleteTask(idx);
+//       displayList();
+//     })
+
+//     todoList.appendChild(newLi);
+//   })
+// }
+
+// const updateTask = (updatedItem, idx) => {
+//   todos[idx] = updatedItem;
+// }
+
+// const deleteTask = (idx) => {
+//   todos = todos.filter((_, index) => index != idx)
+// }
+
+// saveBtn.addEventListener('click', () => {
+//   if (editedIdx > -1) {
+//     updateTask(todoInput.value, editedIdx)
+//     editedIdx = -1
+//   } else {
+//     createTask(todoInput.value)
+//   }
+//   todoInput.value = ''
+//   displayList();
+// })
+
+// displayList();

@@ -37,7 +37,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  // margin-top: 23rem;
 }
 
 .name-container {
@@ -55,18 +54,6 @@
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-}
-
-#quote select {
-  border: 0;
-  outline: 0;
-  background: transparent;
-  color: white;
-  appearance: none;
-  -webkit-appearance: none;
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
 }
 
 .add-quote {
@@ -91,48 +78,88 @@
   margin-top: 1rem;
 }
 
-
-.lower-right-container {
-  bottom: 3rem;
-  right: 1.25rem;
-}
-
-.fixed {
-  position: fixed;
-}
-
-.todo-input {
-  outline: none;
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid white;
-  transition: all 1s;
-  color: white;
-}
-
-.save-btn {
-  color: white;
-  background-color: transparent;
-  margin-right: 2rem;
-  border: none;
-
-}
-
-.span-list {
-  font-size: 1.5rem;
-  color: white;
-  margin-right: 2rem;
-}
-
-.todo-list {
-  list-style: none;
-}
-
-.select {
-  background-color: rgba($color: #585252, $alpha: 0.1);
-}
-
 .select-quotes {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-family: 'Arimo', sans-serif;
+}
+
+
+#todo {
+  position: fixed;
+  bottom: 0rem;
+  right: 0rem;
+  margin-right: 2rem;
+}
+
+#todo button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+#todo .tool {
+  min-width: 250px;
+  background-color: #000;
+  color: white;
+  position: absolute;
+  bottom: 4rem;
+  right: 2rem;
+  visibility: hidden;
+}
+
+
+#todo .tool.show {
+  visibility: visible;
+}
+
+#todo .tool ul {
+  list-style-type: none;
+}
+
+#todo .tool ul li {
+  padding: 10px;
+  border-bottom: 1px solid #2c2c2c;
+  display: flex;
+  align-items: center;
+}
+
+#todo .tool ul li span {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+}
+
+#todo input {
+  background: #2c2c2c;
+  font-size: 2rem;
+  padding: 0.5rem;
+  border: none;
+  color: white;
+}
+
+#todo input[type='checkbox'] {
+  margin-right: 10px;
+}
+
+#file {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+#file button {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+}
+
+.input-todo {
+  font-size: 1.6rem;
 }
